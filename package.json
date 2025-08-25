@@ -1,0 +1,31 @@
+{
+  "name": "yopricloud_backend",
+  "version": "1.0.0",
+  "description": "Backend used by yopricloud.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [
+    "files",
+    "cloud",
+    "upload",
+    "private",
+    "node",
+    "express",
+    "server"
+  ],
+  "author": "LuAlMeAv",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "mime-types": "^3.0.1",
+    "multer": "^2.0.2",
+    "music-metadata": "^11.7.3",
+    "nodemon": "^3.1.10"
+  }
+}
