@@ -12,12 +12,11 @@ const postRoutes = require("./routes/post.routes");
 const getRoutes = require("./routes/get.routes");
 const deleteRoutes = require("./routes/delete.routes");
 const putRoutes = require("./routes/put.routes");
+const getIpv4 = require("./config/getipv4");
 
 app.use("/api", getRoutes);
 app.use("/api", deleteRoutes);
 app.use("/api", postRoutes);
 app.use("/api", putRoutes);
 
-app.listen(PORT, () => {
-    console.log(`Example app listening on http://localhost:${PORT}`)
-});
+app.listen(PORT, () => getIpv4(PORT));
