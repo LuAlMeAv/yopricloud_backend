@@ -1,7 +1,9 @@
 require("dotenv").config();
 const express = require('express');
+const https = require('https');
 const cors = require('cors');
 const path = require('path');
+const fs = require('fs');
 const getIpv4 = require("./config/getipv4");
 const { PORT } = process.env;
 
@@ -27,8 +29,13 @@ app.get('/*any', (req, res) => {
     if (!req.path.startsWith('/api')) {
         res.sendFile(buildPath + "/index.html");
     } else {
-        res.status(404).sendFile("/src/pages/notFound.html");
+        res.status(404).sendFile("/pages/notFound.html");
     }
 });
 
-app.listen(PORT, () => getIpv4(PORT));
+const options = {
+    key: fs.readFileSync('src/certs/key.pem'),
+    cert: fs.readFileSync('src/certs/cert.pem')
+};
+
+https.createServer(options, app).listen(PORT, () => getIpv4(PORT));
