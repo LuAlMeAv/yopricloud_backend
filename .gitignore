@@ -2,3 +2,4 @@
 API.http
 /src/cloud/*
 /node_modules
+/src/certs/*

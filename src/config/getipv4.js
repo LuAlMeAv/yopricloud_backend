@@ -8,7 +8,7 @@ const ethernet = ["eth", "enp"];
 function getIpv4(PORT) {
     console.clear();
     console.log(`App is runing, visit on:`);
-    console.log(`          Local:         http://localhost:${PORT}`);
+    console.log(`          Local:         https://localhost:${PORT}`);
 
     for (const iface in interfaces) {
         for (const alias of interfaces[iface]) {
@@ -16,9 +16,9 @@ function getIpv4(PORT) {
                 const name = iface.toLowerCase();
 
                 if (wifi.includes(name)) {
-                    console.log(`          Your network:  http://${alias.address}:${PORT}`);
+                    console.log(`          Your network:  https://${alias.address}:${PORT}`);
                 } else if (ethernet.includes(name)) {
-                    console.log(`          Your network:  http://${alias.address}:${PORT}`);
+                    console.log(`          Your network:  https://${alias.address}:${PORT}`);
                 }
             }
         }
