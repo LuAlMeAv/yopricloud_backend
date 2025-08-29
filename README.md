@@ -7,6 +7,15 @@ You can use this backend to build your own frontend.
 
 ## Configuration
 
+Create directories `cloud`, `certs` inside of `src`.
+
+```sh
+cd src
+mkdir cloud certs
+```
+
+Put `cert.pem` and `key.pem` SSL certificates on the `certs` directory recently created.
+
 Create a `.env` file in the root directory and add the following variables:
 
 ```
@@ -21,11 +30,11 @@ CLOUD_FOLDER=/cloud
 ## How to Run the Server
 ### Production Mode
 
-```
+```sh
 npm start
 ```
 ### Development Mode (with auto-reload using nodemon)
-```
+```sh
 npm run dev
 ```
 
@@ -35,10 +44,11 @@ npm run dev
 
 Retrieves all files within a specified directory. If the directory is empty, it returns files from the root folder.
 
-> Replace `<<hostname>>` with your server's URL.
 
 **GET request**:
 
+> Use `https://<<hostname>>:PORT/api` with your server's URL.
+
 ```
-<<hostname>>/api/files/all?directory=/example
+/api/files/all?directory=/example
 ```
