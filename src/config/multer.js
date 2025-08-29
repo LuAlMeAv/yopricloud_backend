@@ -8,6 +8,16 @@ const storage = multer.diskStorage({
     filename: (req, file, cb) => cb(null, file.originalname)
 });
 
-const upload = multer({ storage: storage });
+const uploadStorage = multer({ storage: storage }).array("files");
+
+const upload = (req, res, next) => {
+    uploadStorage(req, res, (error) => {
+        if (error) {
+            console.error(error)
+            return res.status(500).json({ status: "error", message: "Error saving the file.", error })
+        }
+        next();
+    })
+}
 
 module.exports = upload;
