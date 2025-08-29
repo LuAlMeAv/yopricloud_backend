@@ -1,5 +1,6 @@
 .env
 API.http
 /src/cloud/*
+/src/build/*
 /node_modules
 /src/certs/*
