@@ -7,7 +7,7 @@ const { CLOUD_FOLDER } = process.env;
 const router = express.Router();
 const upload = require("../config/multer");
 
-router.post("/files", upload.array('files'), (req, res) => {
+router.post("/files", upload, (req, res) => {
     res.json({ status: "success", message: "Saved file" })
 });
 router.post("/folder", (req, res) => {
