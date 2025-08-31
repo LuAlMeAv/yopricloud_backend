@@ -3,7 +3,7 @@ const multer = require("multer");
 const storage = multer.diskStorage({
     destination: (req, res, cb) => {
         const { directory } = req.query;
-        cb(null, `./src${process.env.CLOUD_FOLDER}/${directory === "/" ? "" : directory}`)
+        cb(null, `./src/scanning/${directory === "/" ? "" : directory}`)
     },
     filename: (req, file, cb) => cb(null, file.originalname)
 });

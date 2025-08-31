@@ -2,13 +2,16 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 
+const upload = require("../config/multer");
+const addToQueue = require('../config/scanFiles');
 const { CLOUD_FOLDER } = process.env;
 
 const router = express.Router();
-const upload = require("../config/multer");
+
 
 router.post("/files", upload, (req, res) => {
-    res.json({ status: "success", message: "Saved file" })
+    addToQueue(req.files);
+    res.json({ status: "success", message: "File was uploaded, now it's scanning.", files: req.files })
 });
 router.post("/folder", (req, res) => {
     const { folderPath } = req.query;
