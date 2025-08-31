@@ -4,8 +4,8 @@ const https = require('https');
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
-const getIpv4 = require("./config/getipv4");
 const { PORT } = process.env;
+const getIpv4 = require("./config/getipv4");
 
 const app = express();
 const buildPath = path.join(__dirname, "build");

@@ -41,7 +41,16 @@ router.get('/files/all', (req, res) => {
             }
         })
 
-        return res.json({ status: "success", message: "Here are your files.", files })
+        fs.readdir(path.join(__dirname, "../scanning"), (error, content) => {
+            if (error) {
+                console.error(error)
+            }
+            if (content.length > 0) {
+                return res.json({ status: "warning", message: "There are files scanning yet.", files })
+
+            }
+            return res.json({ status: "success", message: "Here are your files.", files })
+        })
     })
 });
 router.get('/file', (req, res) => {
