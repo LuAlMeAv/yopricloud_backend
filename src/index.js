@@ -5,7 +5,7 @@ const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
 const { PORT } = process.env;
-const getIpv4 = require("./config/getipv4");
+const getIpv4 = require("./config/getIpv4");
 
 const app = express();
 const buildPath = path.join(__dirname, "build");
